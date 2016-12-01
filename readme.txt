@@ -39,7 +39,7 @@ Found a bug or have a feature request ? <a href="https://nabtron.com/wp-server-p
 
 == Changelog ==
 
-= 2.1 =
+= 2.1.1 =
 * Fixed issue where settings didn’t reflect immediately after saving changes
 * Compatible up to WP 4.7
 
@@ -48,9 +48,6 @@ Found a bug or have a feature request ? <a href="https://nabtron.com/wp-server-p
 * OOP improvements
 * Added all code into single class, except activation and uninstall hooks (obviously)
 * Added default option (to be turned on for first install)
-
-= 2.0.3 =
-* Compatible up to WP 4.4.2
 
 = 2.0.3 =
 * Compatible up to WP 4.4.2
