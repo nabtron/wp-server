@@ -3,8 +3,8 @@ Contributors: nabtron
 Tags: wordpress, server, load, uptime, time, average, linux, status, website
 Donate link: http://nabtron.com/donate/
 Requires at least: 4.4
-Tested up to: 4.5
-Stable tag: 2.1
+Tested up to: 4.7
+Stable tag: 2.1.1
 License: gnu gpl2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,20 +40,24 @@ Found a bug or have a feature request ? <a href="https://nabtron.com/wp-server-p
 == Changelog ==
 
 = 2.1 =
-* Compatible upto WP 4.5
+* Fixed issue where settings didn’t reflect immediately after saving changes
+* Compatible up to WP 4.7
+
+= 2.1 =
+* Compatible up to WP 4.5
 * OOP improvements
 * Added all code into single class, except activation and uninstall hooks (obviously)
 * Added default option (to be turned on for first install)
 
 = 2.0.3 =
-* Compatible upto WP 4.4.2
+* Compatible up to WP 4.4.2
 
 = 2.0.3 =
-* Compatible upto WP 4.4.2
+* Compatible up to WP 4.4.2
 * Added css class to button
 
 = 2.0.2 =
-* Compatible upto WP 4.2.2
+* Compatible up to WP 4.2.2
 
 = 2.0.1 =
 * Fixed missing files
@@ -75,5 +79,5 @@ Found a bug or have a feature request ? <a href="https://nabtron.com/wp-server-p
 
 == Upgrade Notice ==
 
-= 2.1 =
-Massive changes in code!
+= 2.1.1 =
+Bug fix & Compatibility

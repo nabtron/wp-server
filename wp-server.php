@@ -4,11 +4,11 @@ Plugin Name: WP Server
 Plugin URI: http://nabtron.com/wp-server-plugin/
 Description: Show average server load and uptime for last 1, 5 and 15 minutes of your linux server on top in admin panel with 2 modes to select from. 
 Tags: show, server, load, average, wordpress, processes, website
-Version: 2.1
+Version: 2.1.1
 Author: Nabtron
 Author URI: http://nabtron.com
 Min WP Version: 4.4
-Max WP Version: 4.5
+Max WP Version: 4.7
 */
 
 /* registering activation and uninstall hooks */
@@ -30,6 +30,17 @@ if (!class_exists('nabserver_main')) {
 		}
 
 		public function page_init() {
+            if ( !wp_verify_nonce( $_POST['nabserver_noncename'], plugin_basename(__FILE__) )) {
+                return;
+            }
+            if ( !current_user_can( 'manage_options' )){
+                return;
+            }
+			// Update routines
+			if ('insert' == $_POST['action_nabserver']) {
+				update_option( 'nabserver_show', $_POST['nabserver_show'] );
+			}
+
 			// to show the server load or not
 			$show_wp_server_status = get_option( 'nabserver_show' );
 			if( 0 != $show_wp_server_status){
@@ -47,16 +58,6 @@ if (!class_exists('nabserver_main')) {
 				}
 			}
 
-            if ( !wp_verify_nonce( $_POST['nabserver_noncename'], plugin_basename(__FILE__) )) {
-                return;
-            }
-            if ( !current_user_can( 'manage_options' )){
-                return;
-            }
-			// Update routines
-			if ('insert' == $_POST['action_nabserver']) {
-				update_option( 'nabserver_show', $_POST['nabserver_show'] );
-			}
 		}
 
 		function wp_server_status_css() {
