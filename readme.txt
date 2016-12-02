@@ -4,7 +4,7 @@ Tags: wordpress, server, load, uptime, time, average, linux, status, website
 Donate link: http://nabtron.com/donate/
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 2.1.1
+Stable tag: 2.2.a
 License: gnu gpl2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
