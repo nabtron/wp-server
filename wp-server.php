@@ -4,11 +4,11 @@ Plugin Name: WP Server
 Plugin URI: http://nabtron.com/wp-server-plugin/
 Description: Show average server load and uptime for last 1, 5 and 15 minutes of your linux server on top in admin panel with 2 modes to select from. 
 Tags: show, server, load, average, wordpress, processes, website
-Version: 2.2.a
+Version: 2.1.3
 Author: Nabtron
 Author URI: http://nabtron.com
 Min WP Version: 4.4
-Max WP Version: 4.7
+Max WP Version: 5.1.1
 */
 
 /* registering activation and uninstall hooks */
@@ -20,6 +20,9 @@ if (!class_exists('nabserver_main')) {
 
 		private $show_wp_server_status;
 
+		// PHP 4 Compatible Constructor
+		public function nabserver_main(){$this->__construct();}
+
 		// PHP 5 Constructor
 		public function __construct(){
 			add_action( 'admin_init', array( $this, 'page_init' ) );
@@ -27,19 +30,18 @@ if (!class_exists('nabserver_main')) {
 		}
 
 		public function page_init() {
-			if(isset($_POST['nabserver_noncename'])){
-	            if ( !wp_verify_nonce( $_POST['nabserver_noncename'], plugin_basename(__FILE__) )) {
-	                return;
-	            }
-	        }
+            if ( empty($_POST['nabserver_noncename']) ) {
+                return;
+            }
+            if ( !wp_verify_nonce( $_POST['nabserver_noncename'], plugin_basename(__FILE__) )) {
+                return;
+            }
             if ( !current_user_can( 'manage_options' )){
                 return;
             }
 			// Update routines
-			if(isset($_POST['action_nabserver'])){
-				if ('insert' == $_POST['action_nabserver']) {
-					update_option( 'nabserver_show', $_POST['nabserver_show'] );
-				}
+			if ('insert' == $_POST['action_nabserver']) {
+				update_option( 'nabserver_show', $_POST['nabserver_show'] );
 			}
 
 			// to show the server load or not
@@ -78,7 +80,7 @@ if (!class_exists('nabserver_main')) {
 
 		static function activation() {
 			if(!get_option( 'nabserver_show' )) {
-				update_option( 'nabserver_show' , '1' );
+				update_option( 'nabserver_show' , '0' );
 			}
 		}
 
@@ -102,7 +104,7 @@ if (!class_exists('nabserver_main')) {
 				$server_load_notice = $serverresult;
 			}
 
-			$memory_usage = $this->get_server_memory_usage();
+			$memory_usage = $this->get_server_memory_usage;
 			$memory_usage_notice = '';
 			if('' != $memory_usage){
 				$memory_usage_notice = 'RAM used: <b>'.$memory_usage.'</b> .';
@@ -114,7 +116,7 @@ if (!class_exists('nabserver_main')) {
 		function wp_server_status_legacy() {
 			$serverresult = @exec('uptime');
 
-			$memory_usage = $this->get_server_memory_usage();
+			$memory_usage = $this->get_server_memory_usage;
 			$memory_usage_notice = '';
 			if('' != $memory_usage){
 				$memory_usage_notice = '- RAM used: <b>'.$memory_usage.'</b> .';
@@ -265,4 +267,3 @@ if (class_exists('nabserver_main')) {
 
 //reference:
 //https://codex.wordpress.org/Creating_Options_Pages
-?>
