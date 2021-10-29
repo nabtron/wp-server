@@ -27,7 +27,7 @@ It shows:
 
 If useful - Future versions are planned to have more options, so please leave a feedback
 
-Found a bug or have a feature request ? <a href="https://nabtron.com/wp-server-plugin/">Report here</a>
+Found a bug or have a feature request ? https://nabtron.com/wp-server-plugin/
 
 == Installation ==
 1. Upload the plugin to the `/wp-content/plugins/` directory
