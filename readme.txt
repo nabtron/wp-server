@@ -1,10 +1,10 @@
 === WP Server ===
 Contributors: nabtron
 Tags: wordpress, server, load, uptime, time, average, linux, status, website
-Donate link: http://nabtron.com/donate/
+Donate link: https://nabtron.com/donate/
 Requires at least: 4.4
-Tested up to: 5.1.1
-Stable tag: 2.1.3
+Tested up to: 5.8.1
+Stable tag: 2.2.2
 License: gnu gpl2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,7 @@ It shows:
 <ul>
 <li>3 averages for server load</li>
 <li>server uptime in days and hours</li>
+<li>Memory usage in %age</li>
 </ul>
 
 If useful - Future versions are planned to have more options, so please leave a feedback
@@ -38,6 +39,20 @@ Found a bug or have a feature request ? <a href="https://nabtron.com/wp-server-p
 2. WP Server settings page
 
 == Changelog ==
+
+= 2.2.2 =
+* Compatible up to WP 5.8.1
+* Bug fixes
+
+= 2.2.1 =
+* Compatible up to WP 5.5.3
+
+= 2.2 =
+* Added Memory Usage
+
+= 2.1.4 =
+* Compatible up to WP 5.2.2
+* Added Settings link on plugins page
 
 = 2.1.3 =
 * Fixes a PHP notice issue
@@ -84,6 +99,6 @@ Found a bug or have a feature request ? <a href="https://nabtron.com/wp-server-p
 
 == Upgrade Notice ==
 
-= 2.1.3 =
-Fixes a PHP notice issue
-Compatible up to WP 5.1.1
+= 2.2.2 =
+* Compatible up to WP 5.8.1
+* Bug fixes
